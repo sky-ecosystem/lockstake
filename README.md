@@ -102,7 +102,6 @@ The following functions are called from the LockstakeClipper (see below) through
 * `jug` - The Dai lending rate calculation module.
 * `fee` - Exit fee.
 
-
 ## 2. LockstakeClipper
 
 A modified version of the Liquidations 2.0 Clipper contract, which uses specific callbacks to the LockstakeEngine on certain events and callbacks to a Cuttee contract to account for bad debt generation. This follows the same paradigm which was introduced in [proxy-manager-clipper](https://github.com/makerdao/proxy-manager-clipper/blob/67b7b5661c01bb09d771803a2be48f0455cd3bd3/src/ProxyManagerClipper.sol) (used for [dss-crop-join](https://github.com/makerdao/dss-crop-join)).
@@ -264,3 +263,24 @@ Note that the `end` flow is not assumed to be used as is, and if needed as part 
 * The LSE assumes that the ESM threshold is set large enough prior to its deployment, so Emergency Shutdown can never be called.
 * Freeing very small amounts could bypass the exit fees (due to the rounding down) but since the LSE is meant to only be deployed on Ethereum, this is assumed to not be economically viable.
 * As opposed to other collateral types, if a user notices an upcoming governance action that can hurt their position (or that they just don't like), they can not exit their position without losing the exit fee.
+
+## Audits
+
+Audit reports are hosted on the auditors' public portfolio pages:
+
+| Auditor | Report | Date |
+| --- | --- | --- |
+| ChainSecurity | [Lockstake Smart Contracts](https://www.chainsecurity.com/security-audit/makerdao-lockstake-smart-contracts/) | 2025-09-26 |
+| Cantina | [Lockstake: Sky Max Price Oracle](https://cantina.xyz/portfolio/35ee06af-bd53-4a6a-98f3-787a034ef6d7) | 2025-09-26 |
+| Cantina | [Lockstake](https://cantina.xyz/portfolio/8ffe50ae-0723-4c8e-b6da-d445e7245502) | 2025-08-08 |
+| Cantina | [lockstake](https://cantina.xyz/portfolio/38627064-4a37-42c2-8881-f7ff46cd2369) | 2025-04-23 |
+| Cantina | [endgame lockstate (updates)](https://cantina.xyz/portfolio/3c0362a2-1e43-4e96-b63b-4f975e05c05a) | 2024-08-23 |
+| Cantina | [lockstate](https://cantina.xyz/portfolio/0ab48a3e-6978-44e4-a6a7-67de330c70c0) | 2024-05-30 |
+
+ChainSecurity reports are cumulative: each portfolio page hosts the latest version of the report, which covers all previously reviewed versions.
+
+### Other reports
+
+The following reports are not available on an auditor portfolio page and are kept in this repository:
+
+- [Sherlock (20240917-Sherlock_MakerDAO_Endgame_Audit_Report.pdf)](./audit/20240917-Sherlock_MakerDAO_Endgame_Audit_Report.pdf)
